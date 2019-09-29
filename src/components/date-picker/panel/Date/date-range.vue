@@ -296,6 +296,9 @@
             },
             changePanelDate(panel, type, increment, updateOtherPanel = true){
                 const current = new Date(this[`${panel}PanelDate`]);
+                if (type === 'Month') {
+                    current.setDate(1);
+                }
                 current[`set${type}`](current[`get${type}`]() + increment);
                 this[`${panel}PanelDate`] = current;
 
